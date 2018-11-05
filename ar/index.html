@@ -1,0 +1,42 @@
+<!doctype HTML>
+<html>
+	<script src="https://aframe.io/releases/0.8.0/aframe.min.js"></script>
+	<script src="https://cdn.rawgit.com/jeromeetienne/AR.js/1.5.5/aframe/build/aframe-ar.js"></script>
+	<body style='margin: 0px; overflow: hidden;'>
+    <a-scene embedded arjs='trackingMethod: best; debugUIEnabled: false; source: webcam;'>
+	
+		<a-assets>
+			<a-asset-item id='pumpkin' src='gltf/pumpkin.gltf'></a-asset-item>
+		</a-assets>
+	
+		<a-marker preset='custom' type='pattern' url='patterns/1-4.patt'>
+		
+			<a-plane height='1' width='1' color='#000000' rotation='-90 0 0'></a-plane>
+					
+			<a-entity gltf-model='#pumpkin' position='0 -1 0.9' scale='1 1 1'>
+				<a-animation attribute='rotation' to='0 360 0' dur='2000' easing='linear' repeat='indefinite'></a-animation>
+			
+			</a-entity>
+			<!-- <a-sphere color='yellow' radius='0.5'></a-sphere> -->
+			<!-- <a-text value='Moi'></a-text> -->
+			<!--<a-box position='0 0.5 0' material='color: blue;'></a-box>-->
+		</a-marker>
+		
+		<a-marker preset='custom' type='pattern' url='patterns/pattern-hiro.patt'>
+		
+			<a-plane height='1' width='1' color='#0000FF' rotation='-90 0 0'></a-plane>
+					
+			<a-entity gltf-model='#pumpkin' position='0 -1 0.9' scale='1 1 1'>
+				<a-animation attribute='rotation' to='0 -360 0' dur='1000' easing='linear' repeat='indefinite'></a-animation>
+			
+			</a-entity>
+			<!-- <a-sphere color='yellow' radius='0.5'></a-sphere> -->
+			<!-- <a-text value='Moi'></a-text> -->
+			<!--<a-box position='0 0.5 0' material='color: blue;'></a-box>-->
+		</a-marker>
+  	
+		
+		<a-entity camera></a-entity>
+    </a-scene>
+	</body>
+</html>
